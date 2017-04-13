@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+<%= form_for :blog, url: blog_path(@blog), method: :patch do |f| %>
+
+<p>
+<%=f.label :title%>
+<%=f.text_field :title%>
+</p>
+
+<p>
+<%=f.label :description%>
+<%=f.text_field :description%>
+</p>
+<p>
+<%=f.label :image%>
+<%=f.file_field :image%>
+<p>
+<%= f.select(:categry_id, Category.all.collect {|u| [u.name, u.id]}, :prompt => 'Select Category') %> 
+</p>
+</p>
+<p>
+<%=f.submit %>
+</p>
+<%end%>
+</table>
+<%= link_to 'Back', blogs_path %>
